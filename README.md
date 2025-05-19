@@ -58,6 +58,11 @@ This helps users make more informed bidding decisions by providing a clearer pic
         *   Select the desired "Overlay Position" for the on-page display.
     *   Click "Save Settings" to apply and persist your changes.
 
+## Screenshots
+
+Here's a quick look at the extension in action:
+![image](/images/example.png)
+
 ## Known Limitations & Considerations
 
 *   **Website Structure Dependent:** The extension relies on specific HTML structures (CSS selectors) of the Mac.bid website to find the current bid price. If Mac.bid changes its website design, the extension may stop working correctly or entirely until the selectors in `content.js` are updated.
