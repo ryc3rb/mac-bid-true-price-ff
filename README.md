@@ -72,4 +72,4 @@ If you'd like to contribute, please feel free to fork the repository, make your 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.MD](https://github.com/adonnan/mac-bid-true-price/blob/main/README.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE.MD](https://github.com/adonnan/mac-bid-true-price/blob/main/LICENSE.md) file for details.
