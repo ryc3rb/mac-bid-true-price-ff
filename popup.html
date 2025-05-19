@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mac.bid True Price</title>
+  <style>
+    body { font-family: sans-serif; width: 320px; padding: 10px; font-size: 14px; }
+    h3, h4 { margin-top: 0; margin-bottom: 10px; }
+    label { display: block; margin-bottom: 3px; font-weight: bold;}
+    .input-group { margin-bottom: 12px; }
+    .input-group input[type="number"] { width: 70px; margin-right: 5px; padding: 4px;}
+    .input-group span { font-size: 0.9em; }
+    button { margin-top: 10px; padding: 6px 12px; cursor: pointer; }
+    hr { margin: 15px 0; border: 0; border-top: 1px solid #eee; }
+    #status { color: green; font-size: 0.9em; min-height: 1.2em; }
+
+    /* Styles for price display in popup */
+    #price-display-in-popup {
+      margin-bottom: 15px; /* Space before settings */
+      padding: 10px;
+      border: 1px solid #007bff;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    #price-display-in-popup h4 { margin-top: 0; font-size: 1.1em; }
+    #price-display-in-popup p#popup-loading-price { margin: 3px 0; font-size: 0.9em; font-style: italic;}
+    .price-line { display: flex; justify-content: space-between; font-size: 0.9em; margin-bottom: 2px; }
+    .price-line strong, #price-display-in-popup strong.total-popup-price { color: #28a745; font-size: 1.05em; }
+    #price-display-in-popup small {display: block; text-align: center; font-size: 0.8em; color: #777; margin-top: 5px;}
+
+
+    /* Toggle Switch for Visibility */
+    .switch { position: relative; display: inline-block; width: 50px; height: 24px; }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 24px; }
+    .slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+    input:checked + .slider { background-color: #2196F3; }
+    input:checked + .slider:before { transform: translateX(26px); }
+  </style>
+</head>
+<body>
+  <h3>Mac.bid True Price</h3>
+
+  
+  <div id="price-display-in-popup">
+    <h4>Estimated Price Details:</h4>
+    <p id="popup-loading-price">Loading price from page...</p>
+    
+  </div>
+
+  <hr> 
+
+  <h4>Settings</h4>
+  <div class="input-group">
+    <label for="buyersPremiumInput">Buyer's Premium Rate:</label>
+    <input type="number" id="buyersPremiumInput" min="0" max="100" step="0.1">
+    <span>%</span>
+  </div>
+  <div class="input-group">
+    <label for="lotFeeInput">Lot Fee:</label>
+    <span>$</span><input type="number" id="lotFeeInput" min="0" step="0.01">
+  </div>
+  <div class="input-group">
+    <label for="salesTaxInput">Your Sales Tax Rate:</label>
+    <input type="number" id="salesTaxInput" min="0" max="100" step="0.01">
+    <span>%</span>
+  </div>
+
+  <hr>
+  <h4>Display Options</h4>
+  <div class="input-group">
+    <label style="display: inline-block;">Show Price Overlay on Page:</label>
+    <label class="switch">
+      <input type="checkbox" id="visibilityToggle">
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <button id="saveButton">Save Settings</button>
+  <p id="status"></p>
+
+  <script src="popup.js"></script>
+</body>
+</html>
