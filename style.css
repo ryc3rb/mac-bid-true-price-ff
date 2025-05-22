@@ -1,9 +1,8 @@
-/* Keep all existing .macbid-true-price-display styles */
+
 .macbid-true-price-display {
-  /* ... (your existing floating styles: position, bottom, right, z-index, etc.) ... */
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  right: 80px;
   z-index: 2147483647;
   background-color: #ffffff;
   border: 1px solid #007bff;
@@ -18,7 +17,6 @@
   line-height: 1.6;
 }
 
-/* Styles for the close button on the overlay */
 .macbid-price-overlay-close-btn {
   position: absolute;
   top: 5px;
@@ -36,7 +34,6 @@
   color: #333;
 }
 
-/* Keep other existing styles for components within the display */
 .macbid-true-price-display strong.total-price { /* ... */ }
 .macbid-true-price-display .price-component { /* ... */ }
 .macbid-true-price-display hr { /* ... */ }

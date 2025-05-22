@@ -18,10 +18,11 @@
   "content_scripts": [
     {
         "matches": [
-            "*://*.mac.bid/search*",  
-            "*://*.mac.bid/*lot*"     
+            "*://*.mac.bid/search*",         // For search results
+            "*://*.mac.bid/*lot*",           // For /auction/.../lot/... pages
+            "*://*.mac.bid/*?*lid=*"        // For pages like /?aid=...&lid=...
         ],
-        "css": ["styles.css"],
+        "css": ["style.css"], // or styles.css, whichever you are using
         "js": ["content.js"]
     }
 ],
