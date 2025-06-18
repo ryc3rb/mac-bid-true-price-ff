@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Mac.bid True Price Calculator Firefox",
+  "name": "Mac.bid True Price Calculator",
   "version": "0.1",
   "description": "Shows the true price (including buyer's premium) on Mac.bid auction pages.",
   "permissions": [
