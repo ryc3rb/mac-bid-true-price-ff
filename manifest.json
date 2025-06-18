@@ -17,24 +17,23 @@
   },
   "content_scripts": [
     {
-        "matches": [
-            "*://*.mac.bid/search*",         // For search results
-            "*://*.mac.bid/*lot*",           // For /auction/.../lot/... pages
-            "*://*.mac.bid/*?*lid=*"        // For pages like /?aid=...&lid=...
-        ],
-        "css": ["style.css"], // or styles.css, whichever you are using
-        "js": ["content.js"]
+      "matches": [
+        "*://*.mac.bid/search*",
+        "*://*.mac.bid/*lot*",
+        "*://*.mac.bid/*?*lid=*"
+      ],
+      "css": ["style.css"],
+      "js": ["content.js"]
     }
-],
+  ],
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
-  }
-}
-
-"browser_specific_settings": {
-  "gecko": {
-    "id": "macbid@ryc3rb.dev"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "macbid@ryc3rb.dev"
+    }
   }
 }
