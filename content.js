@@ -148,31 +148,55 @@ function calculateAndDisplayTruePrice() {
     }
   }
 
-  contentContainer.innerHTML = `
-    <div class="price-component">
-      <span>Current Bid:</span>
-      <span>$${priceDetails.winningBid.toFixed(2)}</span>
-    </div>
-    <div class="price-component">
-      <span>Premium (${priceDetails.buyersPremiumRateApplied.toFixed(1)}%):</span>
-      <span>+$${priceDetails.buyersPremiumAmount.toFixed(2)}</span>
-    </div>
-    <div class="price-component">
-      <span>Lot Fee:</span>
-      <span>+$${priceDetails.lotFee.toFixed(2)}</span>
-    </div>
-    <hr style="border: 0; border-top: 1px solid #ddd; margin: 5px 0;">
-    <div class="price-component">
-      <span>Subtotal (tax base):</span>
-      <span>$${priceDetails.subtotalBeforeTax.toFixed(2)}</span>
-    </div>
-    <div class="price-component">
-      <span>Sales Tax (${priceDetails.salesTaxRateApplied.toFixed(2)}%):</span>
-      <span>+$${priceDetails.salesTaxAmount.toFixed(2)}</span>
-    </div>
-    <strong class="total-price">Estimated Total: $${priceDetails.truePrice.toFixed(2)}</strong>
-    <small style="display: block; text-align: center; font-size: 0.8em; color: #777;">(Excludes shipping)</small>
-  `;
+  // ChatGPT-generated Replacement for unsafe HTML
+  const contentContainer = document.createElement("div");
+
+  // Helper to build a row
+  function createRow(label, value) {
+  const row = document.createElement("div");
+  row.className = "price-component";
+
+  const spanLabel = document.createElement("span");
+  spanLabel.textContent = label;
+
+  const spanValue = document.createElement("span");
+  spanValue.textContent = value;
+
+  row.appendChild(spanLabel);
+  row.appendChild(spanValue);
+  return row;
+}
+
+  // Rows
+  contentContainer.appendChild(createRow("Current Bid:", `$${priceDetails.winningBid.toFixed(2)}`));
+  contentContainer.appendChild(createRow(`Premium (${priceDetails.buyersPremiumRateApplied.toFixed(1)}%):`, `+$${priceDetails.buyersPremiumAmount.toFixed(2)}`));
+  contentContainer.appendChild(createRow("Lot Fee:", `+$${priceDetails.lotFee.toFixed(2)}`));
+
+  // Divider
+  const divider = document.createElement("hr");
+  divider.style.cssText = "border: 0; border-top: 1px solid #ddd; margin: 5px 0;";
+  contentContainer.appendChild(divider);
+
+  // More rows
+  contentContainer.appendChild(createRow("Subtotal (tax base):", `$${priceDetails.subtotalBeforeTax.toFixed(2)}`));
+  contentContainer.appendChild(createRow(`Sales Tax (${priceDetails.salesTaxRateApplied.toFixed(2)}%):`, `+$${priceDetails.salesTaxAmount.toFixed(2)}`));
+
+  // Estimated total
+  const strong = document.createElement("strong");
+  strong.className = "total-price";
+  strong.textContent = `Estimated Total: $${priceDetails.truePrice.toFixed(2)}`;
+  contentContainer.appendChild(strong);
+
+  // Small footer note
+  const note = document.createElement("small");
+  note.style.cssText = "display: block; text-align: center; font-size: 0.8em; color: #777;";
+  note.textContent = "(Excludes shipping)";
+  contentContainer.appendChild(note);
+  
+  // Inject into the existing container
+  const original = document.getElementById("contentContainer");
+  original.innerHTML = "";
+  original.appendChild(contentContainer);
 
   // Notify popup (if open) that the on-page price has been updated
   chrome.runtime.sendMessage({ type: "PRICE_UPDATED_ON_PAGE" }).catch(e => {/* ignore if popup not open or no listener */});
