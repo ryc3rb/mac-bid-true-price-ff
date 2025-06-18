@@ -1,10 +1,16 @@
-# Mac.bid True Price Calculator - Chrome Extension
+# Mac.bid True Price Calculator - Firefox Extension
 
 ## Disclaimer
 
 **This extension is an independent project and is NOT officially affiliated with, endorsed by, or connected to Mac.bid or its parent company in any way. It is a third-party tool created to enhance the user experience on mac.bid auction pages. Use at your own discretion. The accuracy of calculations depends on the stability of the Mac.bid website structure, which can change without notice.**
 
 **There is NO WARRANTY provided with this software, express or implied. The author is not responsible for any financial decisions made based on the information provided by this extension, nor for any issues that may arise from its use.**
+
+## Acknowledgements
+I couldn't have done this without:
+
+*   The original project: https://github.com/adonnan/mac-bid-true-price
+*   ChatGPT
 
 ---
 
